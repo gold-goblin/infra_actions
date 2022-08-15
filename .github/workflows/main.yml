@@ -63,7 +63,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             # Выполняет pull образа с DockerHub
-            sudo docker pull 214985789169149187/test
+            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/test
             #остановка всех контейнеров
             sudo docker stop $(sudo docker ps -a -q)
-            sudo docker run --rm -d -p 5000:5000 214985789169149187/test  
+            sudo docker run --rm -d -p 5000:5000 ${{ secrets.DOCKER_USERNAME }}/test
